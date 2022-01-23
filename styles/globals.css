@@ -79,6 +79,19 @@ nav {
   border-radius: 1rem;
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .standard-btn:hover {
   color: #1A1A1A;
   background-color: #FFFFFF;
