@@ -13,4 +13,37 @@ a {
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
+
+
+body {
+  padding: 2rem;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(to top right, #1F1F1F, #3B3B3B);
+  color: white;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.link {
+  color: white;
+  margin: 0 2rem;
+
+}
+
+.link:hover {
+  font-weight: 700;
+}
+
+footer {
+  margin-top: auto;
+  color: white;
+}
+
