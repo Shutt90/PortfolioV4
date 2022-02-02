@@ -15,9 +15,7 @@ function Layout({children}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar/>
-        <Main>
             {children}
-        </Main>  
       <Footer />
     </>
   )
