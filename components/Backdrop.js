@@ -15,3 +15,4 @@ const Background = ({children, onClick}) => {
     )
 
 }
+export default Background;
