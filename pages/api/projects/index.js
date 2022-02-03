@@ -6,25 +6,19 @@ const prisma = new PrismaClient()
 
 async function main(req, res) {
   // Connect the client
-  await prisma.$connect()
   // ... you will write your Prisma Client queries here
 
   try {
-    const projects = await prisma.projects.findMany()
-    res.status(200).json({result})
-  } catch(err) {
-    console.log(err)
-  } finally {
-    await prisma.$disconnect
-    res.status(500).json({err: 'Failed to load data'})
-  }
-  
+    await prisma.$connect()
 
-  try {
+    console.log(req, res)
+
     await prisma.projects.create({
       data: {
         slug: req.body.slug,
         title: req.body.title,
+        body: req.body.body,
+        images: req.body.images,
       },
     })
     res.send(200).json({message: 'Uploaded project'})
@@ -36,7 +30,7 @@ async function main(req, res) {
   }
 }
 
-main()
+export default main()
   .catch((err) => {
     throw err
   })
