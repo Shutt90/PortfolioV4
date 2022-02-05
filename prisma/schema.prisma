@@ -25,3 +25,9 @@ model Users {
     name  String?
 
 }
+
+model Blog {
+    id     String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+    title  String
+    body   String
+}

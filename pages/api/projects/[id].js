@@ -7,16 +7,8 @@ const prisma = new PrismaClient()
 export default async (req, res) => {
   try {
     await prisma.$connect()
+    const thisProject = await prisma.projects.findOne({where: id})
 
-    await prisma.projects.create({
-      data: {
-        slug: req.body.slug,
-        title: req.body.title,
-        body: req.body.body,
-        images: req.body.images,
-      },
-    })
-    res.status(200).render({message: 'Uploaded project'})
   } catch(err) {
     console.log(err)
     res.status(500).json({error: 'Please try again later'})
