@@ -4,14 +4,12 @@ const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient()
 
-async function main(req, res) {
+export default async (req, res) => {
   // Connect the client
   // ... you will write your Prisma Client queries here
 
   try {
     await prisma.$connect()
-
-    console.log(req, res)
 
     await prisma.projects.create({
       data: {
@@ -21,19 +19,11 @@ async function main(req, res) {
         images: req.body.images,
       },
     })
-    res.send(200).json({message: 'Uploaded project'})
+    res.status(200).json({message: 'Uploaded project'})
   } catch(err) {
-    console.error(err)
+    console.log(err)
+    res.status(500).json({error: 'Please try again later'})
   } finally {
-    await prisma.$disconnect
-    res.send(500).json({error: 'Please try again later'})
+    await prisma.$disconnect()
   }
 }
-
-export default main()
-  .catch((err) => {
-    throw err
-  })
-  .finally(async () => {
-    await prisma.$disconnect()
-  })

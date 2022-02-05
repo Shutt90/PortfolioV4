@@ -16,7 +16,7 @@ model Projects {
   slug     String    @unique
   title    String
   body     String
-  images   String
+  images   String?  
 }
 
 model Users {
