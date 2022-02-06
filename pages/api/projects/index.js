@@ -7,9 +7,10 @@ const prisma = new PrismaClient()
 export default async (req, res) => {
   try {
     await prisma.$connect()
+    const projects = await prisma.projects.findMany()
 
     await prisma.projects.create({
-      data: {
+    data: {
         slug: req.body.slug,
         title: req.body.title,
         body: req.body.body,

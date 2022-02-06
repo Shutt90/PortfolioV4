@@ -92,6 +92,31 @@ nav {
 
 }
 
+form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+form > * {
+  margin: 0.5rem;
+  height: 3rem;
+}
+
+input::placeholder {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+textarea {
+  height: 10rem;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+
+
+}
+
 .standard-btn:hover {
   color: #1A1A1A;
   background-color: #FFFFFF;

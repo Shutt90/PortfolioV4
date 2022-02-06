@@ -6,7 +6,7 @@ import projects from '../api/projects';
 
 function [id]({title}) {
     <Layout>
-        <Textblock title={projects.title}
+        <Textblock title={projects.title}/>
 
     </Layout>
 
