@@ -1,18 +1,20 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import Layout from '../components/Layout'
-import Navbar from '../components/Navbar'
-import Textblock from '../components/Textblock'
-import dbConnect from '../lib/dbconnect'
+import Banner from '../components/Banner';
+import { useState } from 'react';
 
 export default function Home() {
+  const [index, setIndex] = useState(0)
+
+  const skillsArray = ['JavaScript', 'React', 'NextJS', 'PHP', 'Laravel', 'Node']
+
+  if(index === skillsArray.length) {
+   setIndex(0)
+  }
+
   return (
     <div>
       <Layout>
-        <Textblock
-          subtitle={'A box to put contents in'}
-          paragraph={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
-          />
+        <Banner title={'Liam Pugh'} subtitle={`${skillsArray[index]} Developer`} onClick={() => {setIndex(index ++ )}} alt="jslogo"/>
       </Layout>
     </div>
   )

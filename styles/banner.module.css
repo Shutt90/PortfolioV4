@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    padding: 0rem 3rem;
+
+}
+
+.subtitle {
+    padding: 0rem 3rem;
+
+}
