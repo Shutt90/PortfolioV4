@@ -109,11 +109,22 @@ input::placeholder {
   padding: 0.5rem;
 }
 
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex > * {
+  margin: 1rem;
+
+}
+
 textarea {
   height: 10rem;
   font-size: 1.5rem;
   padding: 0.5rem;
-
+  margin: 1rem;
 
 }
 
