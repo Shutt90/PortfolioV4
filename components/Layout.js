@@ -13,8 +13,6 @@ function Layout({children}) {
 
   return(
       <>
-
-      {console.log(title)}
       <Head>
         <title>Portfolio {title ? `- ${title}` : `- Liam Pugh`}</title>
         <meta name="title" content="Web Developer" />
