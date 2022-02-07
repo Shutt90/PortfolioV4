@@ -6,7 +6,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 function index({projects}) {
-
+  
   const stringLimit = 10
   return (
       <Layout>

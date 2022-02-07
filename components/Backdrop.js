@@ -1,6 +1,6 @@
-import {motion} from 'frame-motion';
+import { motion } from "framer-motion";
 
-const Background = ({children, onClick}) => {
+const Backdrop = ({children, onClick}) => {
 
     return (
         <motion.div
@@ -15,4 +15,4 @@ const Background = ({children, onClick}) => {
     )
 
 }
-export default Background;
+export default Backdrop;
