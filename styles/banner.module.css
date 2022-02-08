@@ -4,6 +4,10 @@
     justify-content: center;
 }
 
+.textarea {
+    margin-right: 1rem;
+}
+
 .title {
     padding: 0rem 3rem;
 

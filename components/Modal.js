@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import Backdrop from './Backdrop';
-
+import ContactForm from './ContactForm'
 const dropIn = {
     hidden: {
         y: "-100vh",
@@ -22,9 +22,10 @@ const dropIn = {
     },
 };
 
-const Modal = ({ handleClose, text }) => {
+const Modal = ({ handleClose, text, type }) => {
 
     return (
+        type === 'login' ? 
         <Backdrop onClick={handleClose}>
             <motion.div
             onClick={(e) => e.stopPropagation()}  
@@ -37,6 +38,20 @@ const Modal = ({ handleClose, text }) => {
             <button onClick={handleClose}>Close</button>
             </motion.div>
         </Backdrop>
+        :
+        <Backdrop onClick={handleClose}>
+        <motion.div
+        onClick={(e) => e.stopPropagation()}  
+        className="modal orange-gradient"
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        >
+        <button onClick={handleClose}>Close</button>
+        </motion.div>
+    </Backdrop>
+
     );
 };
 

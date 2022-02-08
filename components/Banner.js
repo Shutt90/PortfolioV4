@@ -4,7 +4,7 @@ import styles from '/styles/banner.module.css'
 function Banner({title, subtitle, alt, onClick}) {
   return (
     <div className={styles.container}>
-        <div>
+        <div className={styles.textarea}>
             <h1 className={styles.title}>{title}</h1>
             <h3 onClick={onClick} className={styles.subtitle}>{subtitle}</h3>
         </div>
