@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 
 const prisma = new PrismaClient()
 
-createUser = async (req, res) => {
+const createUser = async (req, res) => {
 
     try {
         await prisma.$connect()
@@ -48,3 +48,38 @@ createUser = async (req, res) => {
 }
 
 createUser()
+
+export default async function login(req, res) {
+
+    if(req.method === 'POST') {
+        try {
+            const email = req.body.username
+            await prisma.$connect()
+            const user = await prisma.Users.findUnique({
+                where: {
+                    email: email,
+                }
+            })
+
+            const match = await bcrypt.compare(req.body.password, user.password);
+            
+            if(match) {
+
+                console.log('Congrats. Get some sleep')
+
+            } else {
+                res.status(400).json({error: 'wrong username/password'})
+
+
+            }
+
+        } catch(err) {
+            console.error(err)
+            res.status(500).json({error: 'Server Down'})
+
+        } finally {
+            await prisma.$disconnect()
+        }
+    }
+    
+}
