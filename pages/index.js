@@ -7,7 +7,7 @@ export default function Home() {
   let timer
 
   const skillsArray = ['JavaScript', 'React', 'NextJS', 'PHP', 'Laravel', 'Node']
-  const interval = 1000
+  const interval = 200
 
   const updateIndex = () => {
     timer = !timer && setInterval(()=> {
@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div>
       <Layout>
-        <Banner title={'Liam Pugh'} subtitle={`${skillsArray[index]} Developer`} alt="jslogo"/>
+        <Banner onMouseEnter={() => {clearInterval(timer)}} onMouseLeave={() => updateIndex()} className={'dev-tools'}title={'Liam Pugh'} subtitle={`${skillsArray[index]}`} alt="jslogo"/>
       </Layout>
     </div>
   )
