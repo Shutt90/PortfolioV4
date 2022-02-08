@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Backdrop from '/containers/Backdrop';
 import LoginForm from '/containers/LoginForm'
+import styles from '/styles/modal.module.css'
 
 const dropIn = {
     hidden: {
@@ -31,7 +32,7 @@ const Modal = ({ handleClose, text, type }) => {
         <Backdrop onClick={handleClose}>
             <motion.div
             onClick={(e) => e.stopPropagation()}  
-            className="modal orange-gradient"
+            className={styles.container}
             variants={dropIn}
             initial="hidden"
             animate="visible"
@@ -44,7 +45,7 @@ const Modal = ({ handleClose, text, type }) => {
         <Backdrop onClick={handleClose}>
         <motion.div
         onClick={(e) => e.stopPropagation()}  
-        className="modal orange-gradient"
+        className={styles.container}
         variants={dropIn}
         initial="hidden"
         animate="visible"

@@ -33,9 +33,9 @@ nav {
 
 .standard-btn {
   display: flex;
-  color: #FFFFFF;
+  color: #F7E4DD;
   padding: 0.2rem 0.5rem;
-  background-color: #1A1A1A;
+  background-color: #323232;
   margin-left: auto;
   margin-top: 1rem;
   justify-self: right;
@@ -43,6 +43,14 @@ nav {
   justify-content: center;
   align-items: center;
 }
+
+
+.standard-btn:hover {
+  color: #1A1A1A;
+  background-color: #F7E4DD;
+
+}
+
 
 .backdrop {
   position: fixed;
@@ -90,12 +98,6 @@ textarea {
   font-size: 1.5rem;
   padding: 0.5rem;
   margin: 1rem;
-
-}
-
-.standard-btn:hover {
-  color: #1A1A1A;
-  background-color: #FFFFFF;
 
 }
 
