@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "/components/Button";
 import styles from '../styles/textblock.module.css'
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
@@ -15,7 +15,6 @@ function Textblock({subtitle, paragraph}) {
     <div className={styles.container}>
       <h3 className={styles.subtitle}>{subtitle}</h3>
       <p className={styles.paragraph}>{paragraph}</p>
-      <p>{modalOpen ? 'open' : 'closed' }</p>
       <Button
       onClick={() => modalOpen ? close() : open() }
       text={'See More'}

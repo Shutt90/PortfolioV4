@@ -1,7 +1,7 @@
 import React from 'react';
-import Form from '../../components/Form';
-import Layout from '../../components/Layout';
-import Textblock from '../../components/Textblock'
+import Form from '/components/Form';
+import Layout from '/containers/Layout';
+import Textblock from '/containers/Textblock'
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import Backdrop from './Backdrop';
-import ContactForm from './ContactForm'
+import Backdrop from '/containers/Backdrop';
+import LoginForm from '/containers/LoginForm'
+
 const dropIn = {
     hidden: {
         y: "-100vh",
@@ -14,6 +15,7 @@ const dropIn = {
         type: "spring",
         damping: 25,
         stiffness: 500,
+        zIndex: 101,
         },
     },
     exit: {
@@ -35,7 +37,7 @@ const Modal = ({ handleClose, text, type }) => {
             animate="visible"
             exit="exit"
             >
-            <button onClick={handleClose}>Close</button>
+                <LoginForm />
             </motion.div>
         </Backdrop>
         :
@@ -48,7 +50,6 @@ const Modal = ({ handleClose, text, type }) => {
         animate="visible"
         exit="exit"
         >
-        <button onClick={handleClose}>Close</button>
         </motion.div>
     </Backdrop>
 

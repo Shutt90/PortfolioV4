@@ -1,5 +1,5 @@
-import Layout from '../components/Layout'
-import Banner from '../components/Banner';
+import Layout from '/containers/Layout'
+import Banner from '/components/Banner';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
   let timer
 
   const skillsArray = ['JavaScript', 'React', 'NextJS', 'PHP', 'Laravel', 'Node']
-  const interval = 200
+  const interval = 150
 
   const updateIndex = () => {
     timer = !timer && setInterval(()=> {
@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div>
       <Layout>
-        <Banner onMouseEnter={() => {clearInterval(timer)}} onMouseLeave={() => updateIndex()} className={'dev-tools'}title={'Liam Pugh'} subtitle={`${skillsArray[index]}`} alt="jslogo"/>
+        <Banner className={'dev-tools'}title={'Liam Pugh'} subtitle={`${skillsArray[index]} Developer`} alt="jslogo"/>
       </Layout>
     </div>
   )

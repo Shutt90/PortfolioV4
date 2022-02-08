@@ -2,8 +2,7 @@ import { AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react'
-import Modal from './Modal';
-import Path from './Path';
+import Modal from '../containers/Modal';
 import styles from '/styles/navbar.module.css'
 
 function Navbar() {
@@ -28,16 +27,16 @@ function Navbar() {
           // Fires when all exiting nodes have completed animating out
           onExitComplete={() => null}
       >
-        {modalOpen && <Modal type={'contact'} modalOpen={modalOpen} handleClose={close} />}
+        {modalOpen && <Modal type={'login'} modalOpen={modalOpen} handleClose={close} />}
     </AnimatePresence>
         </div>
         <nav className="nav">
             <Link href={'/'}><a><Image src="/myLogo-transparent.png" width="360" height="120"/></a></Link>
             <div>
-                <Path className={styles.link} href={'/'} text={'Home'} />
-                <Path className={styles.link} href={'/projects'} text={'Projects'} />
-                <Path className={styles.link} href={'/blog'} text={'Blog'} />
-                <Path className={styles.link} href={'/contact'} text={'Contact'} />
+              <Link href={'/'}><a className={styles.link}>{'Home'}</a></Link>
+              <Link href={'/projects'}><a className={styles.link}>{'Projects'}</a></Link>
+              <Link href={'/blog'}><a className={styles.link}>{'Blog'}</a></Link>
+              <Link href={'/contact'}><a className={styles.link}>{'Contact'}</a></Link>
             </div>
         </nav>
       </>

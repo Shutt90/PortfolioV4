@@ -40,6 +40,8 @@ nav {
   margin-top: 1rem;
   justify-self: right;
   border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .backdrop {

@@ -17,3 +17,7 @@
     padding: 0rem 3rem;
 
 }
+
+.bannerImage {
+    z-index: 0;
+}
