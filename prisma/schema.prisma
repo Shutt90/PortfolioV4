@@ -16,12 +16,13 @@ model Projects {
   slug     String    @unique
   title    String
   body     String
-  images   String?  
+  images   String?
 }
 
 model Users {
     id    String  @id @default(dbgenerated()) @map("_id") @db.ObjectId
     email String  @unique
+    password String
     name  String?
 
 }
@@ -30,4 +31,6 @@ model Blog {
     id     String @id @default(dbgenerated()) @map("_id") @db.ObjectId
     title  String
     body   String
+    owner  String
+    timestamp DateTime @default(now())
 }

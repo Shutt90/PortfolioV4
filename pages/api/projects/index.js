@@ -4,7 +4,7 @@ const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient()
 
-export default async (req, res) => {
+export default createProject = async (req, res) => {
   try {
     await prisma.$connect()
 
@@ -18,7 +18,7 @@ export default async (req, res) => {
     })
     res.status(200).json({message: 'Uploaded project'})
   } catch(err) {
-    console.log(err)
+    console.error(err)
     res.status(500).json({error: 'Please try again later'})
   } finally {
     await prisma.$disconnect()
