@@ -1,5 +1,6 @@
 const { PrismaClient } = require('@prisma/client')
 const bcrypt = require('bcrypt')
+const cookie = require('cookie')
 
 const prisma = new PrismaClient()
 
@@ -26,6 +27,7 @@ const createUser = async (req, res) => {
                      email: 'hello@liampugh.co.uk',
                      password: hash,
                      name: 'Liam Pugh',
+                     uuid: process.env.uuid,
                     }
                 })
 
@@ -60,17 +62,26 @@ export default async function login(req, res) {
                     email: email,
                 }
             })
+            
+            if(!user) {
+                res.status(400).json({error: 'Wrong username/password'})
+            }
 
             const match = await bcrypt.compare(req.body.password, user.password);
             
             if(match) {
-
                 console.log('Congrats. Get some sleep')
-
+                res.setHeader('Set-Cookie', cookie.serialize('token', user.uuid, {
+                    httpOnly: true,
+                    secure: process.env.NODE_ENV !== 'development',
+                    maxAge: 60 * 60, //1 hour
+                    expires: new Date(0),
+                    sameSite: 'strict',
+                    path: '/'
+                }))
+                res.status(200).redirect('/')
             } else {
-                res.status(400).json({error: 'wrong username/password'})
-
-
+                res.status(400).json({error: 'Wrong username/password'})
             }
 
         } catch(err) {
