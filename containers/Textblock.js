@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Modal from "./Modal";
 
-function Textblock({subtitle, paragraph}) {
+function Textblock({title, content}) {
   const [modalOpen, setModalOpen] = useState(false);
 
   const close = () => setModalOpen(false);
@@ -13,8 +13,8 @@ function Textblock({subtitle, paragraph}) {
   return (
     
     <div className={styles.container}>
-      <h3 className={styles.subtitle}>{subtitle}</h3>
-      <p className={styles.paragraph}>{paragraph}</p>
+      <h3 className={styles.title}>{title}</h3>
+      <p className={styles.content}>{content}</p>
       <Button
       onClick={() => modalOpen ? close() : open() }
       text={'See More'}
@@ -30,7 +30,7 @@ function Textblock({subtitle, paragraph}) {
         // Fires when all exiting nodes have completed animating out
         onExitComplete={() => null}
     >
-        {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} />}
+        {modalOpen && <Modal title={title} content={content} modalOpen={modalOpen} handleClose={close} />}
     </AnimatePresence>
 
 

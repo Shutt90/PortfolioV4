@@ -14,7 +14,7 @@ function index({projects, auth}) {
       <Layout>
         <div className="flex">
           {projects.map((project) => {
-            return <Textblock key={project.id} subtitle={project.title} paragraph={project.body.length > stringLimit ? project.body.substring(0, stringLimit) + '...' : project.body } />
+            return <Textblock key={project.id} title={project.title} content={project.body.length > stringLimit ? project.body.substring(0, stringLimit) + '...' : project.body } />
           })}
           <p></p>
           

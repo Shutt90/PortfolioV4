@@ -24,7 +24,7 @@ function Navbar() {
           // The exiting component will finish its exit
           // animation before entering component is rendered
           exitBeforeEnter={true}
-          // Fires when all exiting nodes have completed animating out
+        // Fires when all exiting nodes have completed animating out
           onExitComplete={() => null}
       >
         {modalOpen && <Modal type={'login'} modalOpen={modalOpen} handleClose={close} />}

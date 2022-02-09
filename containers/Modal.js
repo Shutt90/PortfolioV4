@@ -25,7 +25,7 @@ const dropIn = {
     },
 };
 
-const Modal = ({ handleClose, text, type }) => {
+const Modal = ({ handleClose, text, type , title, content}) => {
 
     return (
         type === 'login' ? 
@@ -51,6 +51,8 @@ const Modal = ({ handleClose, text, type }) => {
         animate="visible"
         exit="exit"
         >
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.content}>{content}</p>
         </motion.div>
     </Backdrop>
 
