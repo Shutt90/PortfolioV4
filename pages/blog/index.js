@@ -3,23 +3,52 @@ import React from 'react';
 import Form from '../../components/Form';
 import BlogPost from '/components/BlogPost';
 import Layout from '/containers/Layout';
+import { PrismaClient } from "@prisma/client";
+import Textblock from '../../containers/Textblock';
 
-function index() {
+
+const prisma = new PrismaClient();
+
+
+function index({posts}) {  
+
+  const title = posts[0].body
+  console.log(title)
+  
+  const stringLimit = 10
 
   return (
     <Layout>
       <Form className='' initial={{opacity: 0}} action='POST'/>
       <motion.div >
-        <BlogPost />
-        <BlogPost />
-        <BlogPost />
-        <BlogPost />
-        <BlogPost />
-        <BlogPost />
+      {posts.map((post) => {
+            return <BlogPost key={post.id} link={post.slug} titleText={post.title} bodyText={post.body} />
+          })}
       </motion.div>
     </Layout>
     
   );
 }
+
+export async function getServerSideProps(req, res) { 
+
+  const posts = await prisma.Blog.findMany();
+
+  const timestamps = posts.map(post => {
+    return Math.floor(post.timestamp / 1000);
+  })
+
+  posts.forEach((post, index) => {
+    post.timestamp = timestamps[index]
+  })
+
+  return {
+    props: {
+      posts: posts
+
+    },
+  };
+}
+
 
 export default index;

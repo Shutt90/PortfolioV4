@@ -24,15 +24,3 @@ export default createProject = async (req, res) => {
     await prisma.$disconnect()
   }
 }
-
-export async function getServerSideProps() {
-  const projects = await prisma.projects.findMany()
-  return {
-    props: {
-      projects: projects
-
-    }
-
-  }
-
-}

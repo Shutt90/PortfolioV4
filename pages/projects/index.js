@@ -3,7 +3,6 @@ import Form from '/components/Form';
 import Layout from '/containers/Layout';
 import Textblock from '/containers/Textblock'
 import { PrismaClient } from "@prisma/client";
-import cookie from 'cookie';
 
 const prisma = new PrismaClient();
 
@@ -17,7 +16,7 @@ function index({projects}) {
             return <Textblock key={project.id} title={project.title} content={project.body.length > stringLimit ? project.body.substring(0, stringLimit) + '...' : project.body } />
           })}
         </div>          
-          <Form route={'projects'} />
+        <Form route={'projects'} />
 
       </Layout>
       
