@@ -7,7 +7,7 @@ import cookie from 'cookie';
 
 const prisma = new PrismaClient();
 
-function index({projects, auth}) {
+function index({projects}) {
   
   const stringLimit = 10
   return (
@@ -16,11 +16,8 @@ function index({projects, auth}) {
           {projects.map((project) => {
             return <Textblock key={project.id} title={project.title} content={project.body.length > stringLimit ? project.body.substring(0, stringLimit) + '...' : project.body } />
           })}
-          <p></p>
-          
-        </div>
-          
-          <Form />
+        </div>          
+          <Form route={'projects'} />
 
       </Layout>
       

@@ -5,7 +5,6 @@ import styles from '/styles/blogpost.module.css'
 const blogVariants = {
   hidden: {
     opacity: 0,
-    x: -500,
   },
   visible: {
     opacity: 1,
@@ -15,11 +14,10 @@ const blogVariants = {
       duration: 1,
     }
   }, whileHover: {
-    scale: 2,
+    scale: 1.2,
     x: -10000,
     transition: {
       x: { duration: 1000, ease: 'linear'}
-
     }
   },
 }
@@ -34,7 +32,7 @@ function BlogPost() {
     whileHover="whileHover"
     whileFocus="whileFocus"
     >
-        <h1 style={{textTransform: 'uppercase', overflowX: 'hidden', whiteSpace: 'nowrap'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim ut tellus elementum sagittis vitae et leo duis. Lacus vestibulum sed arcu non odio euismod lacinia at. Quis commodo odio aenean sed adipiscing diam. Enim blandit volutpat maecenas volutpat blandit aliquam. Purus in massa tempor nec feugiat nisl. Consectetur adipiscing elit ut aliquam purus. Tortor pretium viverra suspendisse potenti. Sed euismod nisi porta lorem mollis aliquam ut. Risus quis varius quam quisque id diam vel quam elementum. Suspendisse sed nisi lacus sed viverra tellus in. Egestas dui id ornare arcu. Cras sed felis eget velit aliquet sagittis id consectetur. Facilisis volutpat est velit egestas. Purus sit amet volutpat consequat mauris nunc congue.
+        <h1 className={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim ut tellus elementum sagittis vitae et leo duis. Lacus vestibulum sed arcu non odio euismod lacinia at. Quis commodo odio aenean sed adipiscing diam. Enim blandit volutpat maecenas volutpat blandit aliquam. Purus in massa tempor nec feugiat nisl. Consectetur adipiscing elit ut aliquam purus. Tortor pretium viverra suspendisse potenti. Sed euismod nisi porta lorem mollis aliquam ut. Risus quis varius quam quisque id diam vel quam elementum. Suspendisse sed nisi lacus sed viverra tellus in. Egestas dui id ornare arcu. Cras sed felis eget velit aliquet sagittis id consectetur. Facilisis volutpat est velit egestas. Purus sit amet volutpat consequat mauris nunc congue.
 
 Sapien nec sagittis aliquam malesuada bibendum. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Accumsan sit amet nulla facilisi morbi tempus iaculis. Leo vel orci porta non. Malesuada fames ac turpis egestas integer eget aliquet nibh praesent. Massa sed elementum tempus egestas sed sed. Curabitur gravida arcu ac tortor dignissim convallis aenean. Sed odio morbi quis commodo odio aenean sed adipiscing diam. Proin sed libero enim sed faucibus turpis in eu. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Nunc vel risus commodo viverra. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Amet consectetur adipiscing elit ut aliquam. Suspendisse potenti nullam ac tortor. At elementum eu facilisis sed. Ultricies integer quis auctor elit sed. At augue eget arcu dictum varius.
 
