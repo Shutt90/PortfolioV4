@@ -3,7 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import Modal from '../containers/Modal';
+import SearchBar from './SearchBar';
 import styles from '/styles/navbar.module.css'
+import { useRouter } from 'next/router';
+
+
 
 function Navbar() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -11,9 +15,12 @@ function Navbar() {
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
 
+  const router = useRouter()
 
   return (
-      <>
+
+    <>
+      <div>
         <div className={styles.topright}>
           <h5 onClick={() => modalOpen ? close() : open() } className={styles.toprightTxt}>Login</h5>
           <AnimatePresence
@@ -39,7 +46,10 @@ function Navbar() {
               <Link href={'/contact'}><a className={styles.link}>{'Contact'}</a></Link>
             </div>
         </nav>
-      </>
+        {router.asPath === '/projects' ? <SearchBar /> : ''}
+
+      </div>
+    </>
   )
 }
 
