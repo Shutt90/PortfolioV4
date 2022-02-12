@@ -33,6 +33,6 @@ model Blog {
     title  String
     body   String
     owner  String?
-    slug   String?
+    slug   String @
     timestamp DateTime @default(now())
 }

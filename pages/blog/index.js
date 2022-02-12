@@ -29,7 +29,7 @@ function index({posts}) {
   );
 }
 
-export async function getServerSideProps(req, res) { 
+export async function getServerSideProps(context) { 
   const posts = await prisma.Blog.findMany();
 
   const timestamps = posts.map(post => {

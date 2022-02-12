@@ -1,12 +1,37 @@
 import React from 'react'
 import styles from '/styles/post.module.css'
+import { PrismaClient } from "@prisma/client";
 
-function Slug() {
+const prisma = new PrismaClient
+
+function Slug({post}) {
   return (
     <div className={styles.container}>
-        <h1></h1>
+        <h1>{post.title}</h1>
+        <p>{post.body}</p>
     </div>
   )
 }
+
+export async function getServerSideProps(context) {
+    
+    const query = context.query
+    const slug = Object.values(query)
+    const post = await prisma.Blog.findUnique({
+        where: {
+            slug: slug[0]
+        }
+    });
+
+    //remove this at some point
+    delete post.timestamp
+
+    return {
+      props: {
+        post: post,
+  
+      },
+    };
+  }
 
 export default Slug
