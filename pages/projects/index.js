@@ -16,7 +16,7 @@ function index({projects}) {
       //if query is empty
       return post;
     } else if (post.title.toLowerCase().includes(query.toLowerCase())) {
-      console.log(post)
+      //filtered array returned
       return post;
     }
   });

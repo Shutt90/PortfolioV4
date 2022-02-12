@@ -33,6 +33,12 @@ nav {
   align-items: center;
 }
 
+.title {
+  text-align: center;
+  font-size: 3rem;
+  margin: 2rem
+}
+
 .standard-btn {
   display: flex;
   color: #F7E4DD;
