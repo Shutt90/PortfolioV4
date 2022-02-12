@@ -46,7 +46,7 @@ function Navbar() {
               <Link href={'/contact'}><a className={styles.link}>{'Contact'}</a></Link>
             </div>
         </nav>
-        {router.asPath === '/projects' ? <SearchBar /> : ''}
+        
 
       </div>
     </>

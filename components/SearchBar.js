@@ -3,16 +3,22 @@ import React from 'react'
 import styles from '/styles/searchbar.module.css'
 import { motion } from 'framer-motion'
 
-function SearchBar() {
+function SearchBar({onChange}) {
+
+
   return (
-    <motion.div
+    <div
     className={styles.container}>
         <motion.input 
         initial={{x: 180}}
         whileHover={{x: 0}} 
         whileFocus={{x: 0}}
-        type="text" placeholder="Search Projects" className={styles.search}></motion.input>
-    </motion.div>
+        onChange={onChange}
+        type="text"
+        placeholder="Search Projects"
+        className={styles.search}>
+        </motion.input>
+    </div>
   )
 }
 
