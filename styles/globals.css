@@ -39,6 +39,11 @@ nav {
   margin: 2rem
 }
 
+.body {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 .standard-btn {
   display: flex;
   color: #F7E4DD;

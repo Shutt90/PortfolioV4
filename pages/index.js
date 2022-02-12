@@ -7,7 +7,7 @@ export default function Home() {
   let timer
 
   const skillsArray = ['JavaScript', 'React', 'NextJS', 'PHP', 'Laravel', 'Node']
-  const interval = 150
+  const interval = 250
 
   const updateIndex = () => {
     timer = !timer && setInterval(()=> {

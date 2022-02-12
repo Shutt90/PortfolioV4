@@ -80,3 +80,16 @@
     border: none;
 
 }
+
+.submit-btn {
+    display: flex;
+    color: #F7E4DD;
+    padding: 0.2rem 0.5rem;
+    background-color: #323232;
+    margin-left: auto;
+    margin-top: 1rem;
+    justify-self: right;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+}

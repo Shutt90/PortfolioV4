@@ -1,15 +1,18 @@
 import React from 'react'
 import styles from '/styles/post.module.css'
 import { PrismaClient } from "@prisma/client";
+import Layout from '/containers/Layout';
 
 const prisma = new PrismaClient
 
 function Slug({post}) {
   return (
-    <div className={styles.container}>
-        <h1>{post.title}</h1>
-        <p>{post.body}</p>
-    </div>
+      <Layout>
+        <div className={styles.container}>
+            <h1 className="title">{post.title}</h1>
+            <p className="body">{post.body}</p>
+        </div>
+    </Layout>
   )
 }
 
