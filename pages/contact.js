@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Layout from '/containers/Layout';
+import styles from '/styles/contactpage.module.css'
 
 export default function contact() {
 
-  const [message, setMessage] = useState('Contact Me')
+  const [message, setMessage] = useState('')
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -34,7 +35,7 @@ export default function contact() {
         body: JSON.stringify(data)
       }).then((res) => {
         console.log('Response received')
-        if (res.status === 200 || res.status === 250) {
+        if (res.status === 200) {
           console.log('Response succeeded!')
           setName('')
           setEmail('')
@@ -50,20 +51,29 @@ export default function contact() {
   return (
   <div>
       <Layout>
-        <h3 className="title">{message}</h3>
-        <form method="post" action="/api/contact/">
-            <input required placeholder="Name" type="input" onChange={(e)=>{setName(e.target.value)}} name="name" id="name"></input>
-            <input required placeholder="Your Email" type="email" onChange={(e)=>{setEmail(e.target.value)}} name="email" id="email"></input>
-            <select required type="dropdown" onChange={(e)=>{ setSubject(e.target.value)}} name="subject" id="subject">
-                <option value="Pricing" name="pricing" id="pricing">Pricing</option>
-                <option value="Collab" name="collab" id="collab">Collaboration</option>
-                <option value="Discussion" name="discussion" id="discussion">Discussion</option>
-            </select>
-            <input required placeholder="Title" type="input" onChange={(e)=>{setTitle(e.target.value)}} name="title" id="title"></input>
-            <textarea required placeholder="Body" name="body" onChange={(e)=>{setBody(e.target.value)}} id="body"></textarea>
-            
-            <input type="submit" onClick={(e) => handleSubmit(e)}></input>
-        </form>
+        <div class={styles.container}>
+          <div class={styles.leftSide}>
+            <h1 className={styles.title}>Contact Me</h1>
+            <h3 className={styles.title}>{message}</h3>
+            <p className={styles.details}><strong>E:</strong> hello@liampugh.co.uk</p>
+            <p className={styles.details}><strong>T:</strong> 07391 605016</p>
+          </div>
+          <div class={styles.rightSide}>
+            <form method="post" action="/api/contact/">
+                <input required className={styles.textInput} placeholder="Name" type="input" onChange={(e)=>{setName(e.target.value)}} name="name" id="name"></input>
+                <input required className={styles.textInput} placeholder="Your Email" type="email" onChange={(e)=>{setEmail(e.target.value)}} name="email" id="email"></input>
+                <select required className={styles.selectInput} type="dropdown" onChange={(e)=>{ setSubject(e.target.value)}} name="subject" id="subject">
+                    <option className={styles.option} value="Pricing" name="pricing" id="pricing">Pricing</option>
+                    <option className={styles.option} value="Collab" name="collab" id="collab">Collaboration</option>
+                    <option className={styles.option} value="Discussion" name="discussion" id="discussion">Discussion</option>
+                </select>
+                <input required className={styles.textInput} placeholder="Title" type="input" onChange={(e)=>{setTitle(e.target.value)}} name="title" id="title"></input>
+                <textarea required className={styles.textarea} placeholder="Body" name="body" onChange={(e)=>{setBody(e.target.value)}} id="body"></textarea>
+                
+                <input className="submit-btn" type="submit" onClick={(e) => handleSubmit(e)}></input>
+            </form>
+          </div>
+        </div>
       </Layout>
   </div>
   );

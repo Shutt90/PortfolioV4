@@ -95,10 +95,6 @@ input::placeholder {
   padding: 0.5rem;
 }
 
-.searchbar {
-  background-color: 
-}
-
 .flex {
   display: flex;
   flex-direction: row;

@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    
+}
+
+.title {
+
+}
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftSide > * {
+    margin: 1rem;
+    text-align: left;
+}
+
+.rightSide {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 50%;
+}
+
+.textInput {
+    background-color: transparent;
+    border: none;
+    color: #F7E4DD;
+    font-size: 1.5rem;
+    width: 20rem;
+    padding: 0.5rem;
+
+
+}
+
+.textInput::placeholder {
+    color: #F7E4DD;
+
+
+}
+
+.selectInput {
+    background-color: transparent;
+    border: none;
+    color: #F7E4DD;
+    font-size: 1.5rem;
+    width: 20rem;
+    padding: 0.5rem;
+
+
+}
+
+.option {
+    background-color: #323232;
+}
+
+.option::hover {
+    background-color: #F7E4DD;
+    color: #323232;
+}
+
+.textarea {
+    background-color: transparent;
+    color: #F7E4DD;
+    font-size: 1.5rem;
+    border: none;
+    width: 20rem;
+    resize: none;
+    padding: 0.5rem;
+
+}
+
+.textarea::placeholder {
+    color: #F7E4DD;
+    font-size: 1.5rem;
+    border: none;
+
+}
