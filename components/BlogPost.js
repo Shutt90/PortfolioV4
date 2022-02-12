@@ -25,8 +25,6 @@ const blogVariants = {
 
 function BlogPost({titleText, bodyText}) {
   return (
-    <>
-    <div>
       <motion.div
       variants={blogVariants}
       className={styles.row}
@@ -35,12 +33,8 @@ function BlogPost({titleText, bodyText}) {
       whileHover="whileHover"
       whileFocus="whileFocus"
       >
-        <Link href="/">
-          <a className={styles.text}>{titleText}, {bodyText}</a>
-          </Link>    
-      </motion.div>
-    </div>
-    </>
+        <a className={styles.text}>{titleText}, {bodyText}</a>    
+    </motion.div>
     );
 }
 

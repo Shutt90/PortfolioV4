@@ -36,12 +36,12 @@ export default function contact() {
         console.log('Response received')
         if (res.status === 200 || res.status === 250) {
           console.log('Response succeeded!')
-          setSubmitted(true)
           setName('')
           setEmail('')
           setSubject('')
-          setTitle('Pricing')
+          setTitle('')
           setBody('')
+          setSubmitted(true)
           setMessage('Email Sent Successfully')
         }
       })
@@ -61,6 +61,7 @@ export default function contact() {
             </select>
             <input required placeholder="Title" type="input" onChange={(e)=>{setTitle(e.target.value)}} name="title" id="title"></input>
             <textarea required placeholder="Body" name="body" onChange={(e)=>{setBody(e.target.value)}} id="body"></textarea>
+            
             <input type="submit" onClick={(e) => handleSubmit(e)}></input>
         </form>
       </Layout>

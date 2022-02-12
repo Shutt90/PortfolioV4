@@ -4,6 +4,7 @@ import Form from '../../components/Form';
 import BlogPost from '/components/BlogPost';
 import Layout from '/containers/Layout';
 import { PrismaClient } from "@prisma/client";
+import Link from 'next/link';
 
 const prisma = new PrismaClient();
 
@@ -14,8 +15,14 @@ function index({posts}) {
       <Form className='' initial={{opacity: 0}} action='POST'/>
       <motion.div >
       {posts.map((post) => {
-            return <BlogPost key={post.id} link={post.slug} titleText={post.title} bodyText={post.body} />
-          })}
+            return (
+                    <Link href={`/blog/${encodeURIComponent(post.slug)}`}>
+                      <a>
+                        <BlogPost key={post.id} link={post.slug} titleText={post.title} bodyText={post.body} />
+                      </a>
+                    </Link>
+                    )
+                  })}
       </motion.div>
     </Layout>
     
@@ -23,7 +30,6 @@ function index({posts}) {
 }
 
 export async function getServerSideProps(req, res) { 
-
   const posts = await prisma.Blog.findMany();
 
   const timestamps = posts.map(post => {
@@ -36,7 +42,7 @@ export async function getServerSideProps(req, res) {
 
   return {
     props: {
-      posts: posts
+      posts: posts,
 
     },
   };
