@@ -16,7 +16,9 @@ model Projects {
   slug     String    @unique
   title    String
   body     String
+  tech     String[]
   images   String?
+
 }
 
 model Users {
@@ -33,6 +35,6 @@ model Blog {
     title  String
     body   String
     owner  String?
-    slug   String @
+    slug   String @unique
     timestamp DateTime @default(now())
 }
