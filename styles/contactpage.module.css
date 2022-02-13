@@ -20,6 +20,36 @@
     text-align: left;
 }
 
+.icons {
+    display: flex;
+    width: 150px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    height: 60px;
+    width: 60px;
+}
+
+
+.linkedin {
+    cursor: pointer;
+    height: 100%;
+    width: auto;
+    margin: 0 0.5rem;
+}
+
+.github {
+    cursor: pointer;
+    height: 100%;
+    width: auto;
+    margin: 0 0.5rem;
+
+
+}
+
 .rightSide {
     display: flex;
     flex-grow: 1;

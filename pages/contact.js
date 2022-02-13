@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import GithubIcon from '../components/Github-icon';
+import LinkedinIcon from '../components/LinkedinIcon';
 import Layout from '/containers/Layout';
 import styles from '/styles/contactpage.module.css'
+
 
 export default function contact() {
 
@@ -54,8 +57,20 @@ export default function contact() {
         <div class={styles.container}>
           <div class={styles.leftSide}>
             <h1 className={styles.title}>Contact Me</h1>
-            <h3 className={styles.title}>{message}</h3>
-            <p className={styles.details}><strong>E:</strong> hello@liampugh.co.uk</p>
+            <h3 className={styles.title}>
+
+              {message != '' ? message: ''}
+
+            </h3>
+            <div className={styles.icons}>
+              <a className={styles.link} href="https://github.com/shutt90">
+                <GithubIcon className={styles.github}/>
+              </a>
+              <a className={styles.link} href="https://www.linkedin.com/in/liam-pugh-2102089b/">
+                <LinkedinIcon className={styles.linkedin}/>
+              </a>
+            </div>
+            <p className={styles.qdetails}><strong>E:</strong> hello@liampugh.co.uk</p>
             <p className={styles.details}><strong>T:</strong> 07391 605016</p>
           </div>
           <div class={styles.rightSide}>

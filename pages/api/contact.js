@@ -18,7 +18,7 @@ export default function (req, res) {
         text: req.body.body,
         html: `<div><h3>${req.body.title}</h3><h4>${req.body.subject}</h4><p>${req.body.body}</p></div><p>Sent from: ${req.body.email}</p>`
     }
-
+link
     transporter.sendMail(mailData, function (err, info) {
         if(err)
         console.error(err)
