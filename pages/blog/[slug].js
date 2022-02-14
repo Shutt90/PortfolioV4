@@ -14,9 +14,30 @@ function Slug({post}) {
         </div>
     </Layout>
   )
+} 
+
+export default Slug
+
+export async function getStaticPaths() {
+  const res = await fetch('http://localhost:3000/pages/api/blog/index.js')
+  
+  const data = await res.json();
+
+  const paths = data.map(slug => {
+    return {
+      params: { slug: slug.toString() }
+
+    }
+
+  })
+
+  return {
+    paths,
+    fallback: false
+  }
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     
     const query = context.query
     const slug = Object.values(query)
@@ -37,4 +58,3 @@ export async function getServerSideProps(context) {
     };
   }
 
-export default Slug

@@ -16,10 +16,10 @@ function index({posts}) {
       <motion.div >
       {posts.map((post) => {
             return (
-                    <Link href={`/blog/${encodeURIComponent(post.slug)}`}>
+                    <Link key={post.id} passHref={true} href={`/blog/${encodeURIComponent(post.slug)}`}>
                       <a>
                         <BlogPost key={post.id} link={post.slug} titleText={post.title} bodyText={post.body} />
-                      </a>
+                        </a>
                     </Link>
                     )
                   })}
@@ -29,7 +29,7 @@ function index({posts}) {
   );
 }
 
-export async function getServerSideProps(context) { 
+export async function getStaticProps(context) { 
   const posts = await prisma.Blog.findMany();
 
   const timestamps = posts.map(post => {
