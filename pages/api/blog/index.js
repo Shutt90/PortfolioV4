@@ -3,8 +3,6 @@ const prisma = new PrismaClient()
 
 export default async (req, res) => {
     try {
-        await prisma.$connect
-
         await prisma.Blog.create({
             data: {
                 title: req.body.title,
@@ -16,8 +14,5 @@ export default async (req, res) => {
     } catch(err) {
         console.error(err)
         res.status(500).json({error: 'Please try again later'})
-    } finally {
-        await prisma.$disconnect()
     }
-
 }
