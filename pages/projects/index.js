@@ -12,6 +12,27 @@ function index({projects}) {
 
   const [query, setQuery] = useState("");
   const [formOpen, setFormOpen] = useState(0);
+  const [displayPlusX, setDisplayPlusX] = useState(0);
+  const [displayPlusOpacity, setDisplayPlusOpacity] = useState(1);
+  const [displayMinusX, setDisplayMinusX] = useState(0);
+  const [displayMinusOpacity, setDisplayMinusOpacity] = useState(0);
+
+  function plusOnClick () {
+    setDisplayPlusX(50)
+    setDisplayPlusOpacity(0)
+    setDisplayMinusX(-50)
+    setDisplayMinusOpacity(1)
+    setFormOpen(400)
+  }
+
+  function minusOnClick () {
+    setDisplayPlusX(-50)
+    setDisplayPlusOpacity(1)
+    setDisplayMinusX(50)
+    setDisplayMinusOpacity(0)
+    setFormOpen(0)
+
+  }
 
   projects = projects.filter(post => {
     if (query === "") {
@@ -28,11 +49,16 @@ function index({projects}) {
   return (
       <Layout>
         <SearchBar onChange={(e) => setQuery(e.target.value)} />
-        <div className="flex-column align-center">
-          <img onClick={(e) => formOpen === 0 ? setFormOpen(400) : setFormOpen(0)}
-          src="/static/icons8-plus-64.png"
+        <div onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()}
+             className="flex-column align-center">
+          <motion.img animate={{x: displayPlusX + 'px', opacity: displayPlusOpacity}}
+          src="/static/icons8-plus-math-64.png"
           style={{width: "40px", height: "40px", margin: "auto"}}>
-          </img>
+          </motion.img>
+          <motion.img initial ={{opacity: 0}}animate={{x: displayMinusX + 'px', opacity: displayMinusOpacity}}
+          src="/static/icons8-minus-64.png"
+          style={{width: "40px", height: "40px", margin: "auto"}}>
+          </motion.img>
           <motion.div style={{overflow: 'hidden'}} animate={{height: formOpen + 'px'}}>
               <Form route={'projects'} />
               </motion.div>
