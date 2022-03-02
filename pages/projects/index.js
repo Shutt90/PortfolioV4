@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import Form from '/components/Form';
 import Layout from '/containers/Layout';
 import Textblock from '/containers/Textblock'
-import { PrismaClient } from "@prisma/client";
 import SearchBar from '../../components/SearchBar';
 import { motion } from 'framer-motion';
-
-const prisma = new PrismaClient();
 
 function index({projects}) {
 
@@ -74,9 +71,12 @@ function index({projects}) {
   )
 }
 
-export async function getServerSideProps(req, res) { 
+import {loadProjects} from '../../lib/load-projects'
 
-  const projects = await prisma.projects.findMany();
+export async function getStaticProps() { 
+
+  const projects = await loadProjects()
+
   return {
     props: {
       projects: projects,
