@@ -5,7 +5,7 @@ import Layout from '/containers/Layout';
 import styles from '/styles/contactpage.module.css'
 
 
-export default function contact() {
+export default function Contact() {
 
   const [message, setMessage] = useState('')
 
@@ -54,8 +54,8 @@ export default function contact() {
   return (
   <div>
       <Layout>
-        <div class={styles.container}>
-          <div class={styles.leftSide}>
+        <div className={styles.container}>
+          <div className={styles.leftSide}>
             <h1 className={styles.title}>Contact Me</h1>
             <h3 className={styles.title}>
 
@@ -73,7 +73,7 @@ export default function contact() {
             <p className={styles.qdetails}><strong>E:</strong> hello@liampugh.co.uk</p>
             <p className={styles.details}><strong>T:</strong> 07391 605016</p>
           </div>
-          <div class={styles.rightSide}>
+          <div className={styles.rightSide}>
             <form method="post" action="/api/contact/">
                 <input required className={styles.textInput} placeholder="Name" type="input" onChange={(e)=>{setName(e.target.value)}} name="name" id="name"></input>
                 <input required className={styles.textInput} placeholder="Your Email" type="email" onChange={(e)=>{setEmail(e.target.value)}} name="email" id="email"></input>

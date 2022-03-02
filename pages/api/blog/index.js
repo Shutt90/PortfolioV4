@@ -1,7 +1,7 @@
 const {PrismaClient} = require('@prisma/client')
 const prisma = new PrismaClient()
 
-export default async (req, res) => {
+export async function getPosts (req, res) {
     try {
         await prisma.Blog.create({
             data: {

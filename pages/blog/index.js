@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const prisma = new PrismaClient();
 
-function index({posts}) {  
+function Index({posts}) {  
   
   return (
     <Layout>
@@ -49,4 +49,4 @@ export async function getStaticProps(context) {
 }
 
 
-export default index;
+export default Index;

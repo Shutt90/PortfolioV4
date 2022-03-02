@@ -4,8 +4,10 @@ import Layout from '/containers/Layout';
 import Textblock from '/containers/Textblock'
 import SearchBar from '../../components/SearchBar';
 import { motion } from 'framer-motion';
+import loadProjects from '../../lib/load-projects'
 
-function index({projects}) {
+
+function Index({projects}) {
 
   const [query, setQuery] = useState("");
   const [formOpen, setFormOpen] = useState(0);
@@ -17,13 +19,13 @@ function index({projects}) {
   function plusOnClick () {
     setDisplayPlusX(50)
     setDisplayPlusOpacity(0)
-    setDisplayMinusX(-50)
+    setDisplayMinusX(0)
     setDisplayMinusOpacity(1)
     setFormOpen(400)
   }
 
   function minusOnClick () {
-    setDisplayPlusX(-50)
+    setDisplayPlusX(0)
     setDisplayPlusOpacity(1)
     setDisplayMinusX(50)
     setDisplayMinusOpacity(0)
@@ -48,7 +50,7 @@ function index({projects}) {
         <SearchBar onChange={(e) => setQuery(e.target.value)} />
         <div onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()}
              className="flex-column align-center">
-          <motion.img animate={{x: displayPlusX + 'px', opacity: displayPlusOpacity}}
+          <motion.img intial={{x: displayPlusX + 'px', opacity: displayPlusOpacity}} animate={{x: displayPlusX + 'px', opacity: displayPlusOpacity}}
           src="/static/icons8-plus-math-64.png"
           style={{width: "40px", height: "40px", margin: "auto"}}>
           </motion.img>
@@ -71,7 +73,6 @@ function index({projects}) {
   )
 }
 
-import {loadProjects} from '../../lib/load-projects'
 
 export async function getStaticProps() { 
 
@@ -86,4 +87,4 @@ export async function getStaticProps() {
 }
 
 
-export default index;
+export default Index;
