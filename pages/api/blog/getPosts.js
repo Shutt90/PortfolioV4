@@ -2,9 +2,11 @@ const {PrismaClient} = require('@prisma/client')
 const prisma = new PrismaClient()
 
 export async function getPosts() {
-    prisma.Blog.findMany({
+    const data = await prisma.Blog.findMany({
         data: {
             
         }
     })
+
+    return data
 }

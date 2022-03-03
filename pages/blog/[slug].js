@@ -5,7 +5,7 @@ import Layout from '/containers/Layout';
 
 const prisma = new PrismaClient
 
-function Slug({post}) {
+export default function Slug({post}) {
   return (
       <Layout>
         <div className={styles.container}>
@@ -16,12 +16,10 @@ function Slug({post}) {
   )
 } 
 
-export default Slug
-
 export async function getStaticPaths() {
-  const res = await fetch('http://localhost:3000/pages/api/blog/index.js')
-  
+  const res = await fetch('http://localhost:3000/pages/api/blog/getPosts.js')
   const data = await res.json();
+  console.log(data)
 
   const paths = data.map(slug => {
     return {
