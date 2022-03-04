@@ -3,12 +3,10 @@ import React from 'react';
 import Form from '../../components/Form';
 import BlogPost from '/components/BlogPost';
 import Layout from '/containers/Layout';
-import { PrismaClient } from "@prisma/client";
 import Link from 'next/link';
+import loadPosts from '/lib/load-posts'
 
-const prisma = new PrismaClient();
-
-function Index({posts}) {  
+export default function Index({posts}) {  
   
   return (
     <Layout>
@@ -29,16 +27,38 @@ function Index({posts}) {
   );
 }
 
-export async function getStaticProps(context) { 
-  const posts = await prisma.Blog.findMany();
+// export async function getStaticProps(context) { 
+//   const posts = await prisma.Blog.findMany();
+
+//   const timestamps = posts.map(post => {
+//     return Math.floor(post.timestamp / 1000);
+//   })
+
+//   posts.forEach((post, index) => {
+//     post.timestamp = timestamps[index]
+//   })
+
+//   return {
+//     props: {
+//       posts: posts,
+
+//     },
+//   };
+// }
+
+
+
+ export async function getStaticProps(context) { 
+
+  const posts = await loadPosts()
 
   const timestamps = posts.map(post => {
     return Math.floor(post.timestamp / 1000);
   })
 
-  posts.forEach((post, index) => {
-    post.timestamp = timestamps[index]
-  })
+    posts.forEach((post, index) => {
+      post.timestamp = timestamps[index]
+    })
 
   return {
     props: {
@@ -46,7 +66,26 @@ export async function getStaticProps(context) {
 
     },
   };
-}
+ }
+
+// export async function getStaticProps(context) { 
+//   const query = context.query
+//   const slug = Object.values(query)
+//   const post = await prisma.Blog.findUnique({
+//       where: {
+//           slug: slug[0]
+//       }
+//   });
+
+//   //remove this at some point
+//   delete post.timestamp
+
+//   return {
+//     props: {
+//       post: post,
+
+//     },
+//   };
+// }
 
 
-export default Index;

@@ -1,33 +1,48 @@
-import React from 'react'
-import styles from '/styles/post.module.css'
-import { PrismaClient } from "@prisma/client";
+import React from 'react';
+import styles from '/styles/post.module.css';
 import Layout from '/containers/Layout';
+import loadPosts from '/lib/load-posts';
 
-const prisma = new PrismaClient
-
-export default function Slug({post}) {
+export default function Slug({posts}) {
   return (
       <Layout>
+        {console.log(posts)}
         <div className={styles.container}>
-            <h1 className="title">{post.title}</h1>
-            <p className="body">{post.body}</p>
+            <h1 className="title">{posts.title}</h1>
+            <p className="body">{posts.body}</p>
         </div>
     </Layout>
   )
 } 
 
-export async function getStaticPaths() {
-  const res = await fetch('http://localhost:3000/pages/api/blog/getPosts.js')
-  const data = await res.json();
-  console.log(data)
 
-  const paths = data.map(slug => {
-    return {
-      params: { slug: slug.toString() }
+export async function getStaticProps(context) { 
 
-    }
+  const posts = await loadPosts()
 
+  const timestamps = posts.map(post => {
+    return Math.floor(post.timestamp / 1000);
   })
+
+    posts.forEach((post, index) => {
+      post.timestamp = timestamps[index]
+    })
+
+  return {
+    props: {
+      posts: posts,
+
+    },
+  };
+ }
+
+export async function getStaticPaths() {
+  const posts = await loadPosts()
+
+
+  const paths = posts.map((post) => ({
+    params: { slug: post.slug },
+  }))
 
   return {
     paths,
@@ -35,24 +50,24 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps(context) {
+// export async function getStaticProps(context) {
     
-    const query = context.query
-    const slug = Object.values(query)
-    const post = await prisma.Blog.findUnique({
-        where: {
-            slug: slug[0]
-        }
-    });
+//     const query = context.query
+//     const slug = Object.values(query)
+//     const post = await prisma.Blog.findUnique({
+//         where: {
+//             slug: slug[0]
+//         }
+//     });
 
-    //remove this at some point
-    delete post.timestamp
+//     //remove this at some point
+//     delete post.timestamp
 
-    return {
-      props: {
-        post: post,
+//     return {
+//       props: {
+//         post: post,
   
-      },
-    };
-  }
+//       },
+//     };
+//   }
 
