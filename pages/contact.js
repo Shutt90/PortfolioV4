@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '../components/Button';
 import GithubIcon from '../components/Github-icon';
 import LinkedinIcon from '../components/LinkedinIcon';
 import Layout from '/containers/Layout';
@@ -15,6 +16,7 @@ export default function Contact() {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
   const [submitted, setSubmitted] = useState(false)
+
 
   const handleSubmit = (e) => { 
     e.preventDefault()
@@ -85,7 +87,7 @@ export default function Contact() {
                 <input required className={styles.textInput} placeholder="Title" type="input" onChange={(e)=>{setTitle(e.target.value)}} name="title" id="title"></input>
                 <textarea required className={styles.textarea} placeholder="Body" name="body" onChange={(e)=>{setBody(e.target.value)}} id="body"></textarea>
                 
-                <input className="submit-btn" type="submit" onClick={(e) => handleSubmit(e)}></input>
+                <Button type="submit" text="Submit" onClick={(e) => handleSubmit(e)}></Button>
             </form>
           </div>
         </div>
