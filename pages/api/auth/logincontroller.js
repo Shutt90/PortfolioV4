@@ -70,7 +70,6 @@ export default async function login(req, res) {
             const match = await bcrypt.compare(req.body.password, user.password);
             
             if(match) {
-                console.log('Congrats. Get some sleep')
                 res.setHeader('Set-Cookie', cookie.serialize('token', user.uuid, {
                     httpOnly: true,
                     secure: process.env.NODE_ENV !== 'development',
@@ -80,6 +79,7 @@ export default async function login(req, res) {
                     path: '/'
                 }))
                 res.status(200).redirect('/')
+                console.log('loggedIn')
             } else {
                 res.status(400).json({error: 'Wrong username/password'})
             }

@@ -21,7 +21,7 @@ function Index({projects}) {
     setDisplayPlusOpacity(0)
     setDisplayMinusX(0)
     setDisplayMinusOpacity(1)
-    setFormOpen(400)
+    setFormOpen(600)
   }
 
   function minusOnClick () {
@@ -58,8 +58,8 @@ function Index({projects}) {
           style={{width: "40px", height: "40px", margin: "auto"}}>
           </motion.img>
           <motion.div style={{overflow: 'hidden'}} animate={{height: formOpen + 'px'}}>
-              <Form route={'projects'} />
-              </motion.div>
+          <Form route={'projects'} />
+          </motion.div>
         </div>
 
         <div className="flex">

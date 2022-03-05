@@ -6,7 +6,6 @@ import loadPosts from '/lib/load-posts';
 export default function Slug({posts}) {
   return (
       <Layout>
-        {console.log(posts)}
         <div className={styles.container}>
             <h1 className="title">{posts.title}</h1>
             <p className="body">{posts.body}</p>
@@ -15,9 +14,20 @@ export default function Slug({posts}) {
   )
 } 
 
+export async function getStaticPaths() {
+  const posts = await loadPosts()
+
+  const paths = posts.map((post) => ({
+    params: { slug: post.slug },
+  }))
+
+  return {
+    paths,
+    fallback: false
+  }
+}
 
 export async function getStaticProps(context) { 
-
   const posts = await loadPosts()
 
   const timestamps = posts.map(post => {
@@ -35,20 +45,6 @@ export async function getStaticProps(context) {
     },
   };
  }
-
-export async function getStaticPaths() {
-  const posts = await loadPosts()
-
-
-  const paths = posts.map((post) => ({
-    params: { slug: post.slug },
-  }))
-
-  return {
-    paths,
-    fallback: false
-  }
-}
 
 // export async function getStaticProps(context) {
     

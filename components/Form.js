@@ -31,7 +31,7 @@ function Form({className}) {
               <option value='C++' className={styles.option}>C++</option>
               <option value='C#' className={styles.option}>C#</option>
             </select>
-            
+            <Button type="submit" text="Submit"/>            
         </form>
         :
         <form method="POST" className={className} action={`/api/blog/`}>
