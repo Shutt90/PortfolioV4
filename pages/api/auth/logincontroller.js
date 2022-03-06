@@ -56,7 +56,6 @@ export default async function login(req, res) {
     if(req.method === 'POST') {
         try {
             const email = req.body.username
-            await prisma.$connect()
             const user = await prisma.Users.findUnique({
                 where: {
                     email: email,
@@ -79,7 +78,7 @@ export default async function login(req, res) {
                     path: '/'
                 }))
                 res.status(200).redirect('/')
-                console.log('loggedIn')
+
             } else {
                 res.status(400).json({error: 'Wrong username/password'})
             }

@@ -2,7 +2,7 @@ import Layout from '/containers/Layout'
 import Banner from '/components/Banner';
 import { useEffect, useState } from 'react';
 
-export default function Home() {
+export default function Home({user}) {
   const [index, setIndex] = useState(0)
   let timer
 
@@ -17,6 +17,7 @@ export default function Home() {
       setIndex(prevCount => prevCount +1)
     }, interval)
   }
+  
 
   useEffect(() => {
     updateIndex()
