@@ -72,8 +72,8 @@ export default function Contact() {
                 <LinkedinIcon className={styles.linkedin}/>
               </a>
             </div>
-            <p className={styles.qdetails}><strong>E:</strong> hello@liampugh.co.uk</p>
-            <p className={styles.details}><strong>T:</strong> 07391 605016</p>
+            <p className={styles.qdetails}><strong>E:</strong> <a href="mailto:hello@liampugh.co.uk">hello@liampugh.co.uk</a></p>
+            <p className={styles.details}><strong>T:</strong> <a href="tel:+447391605016">07391 605016</a></p>
           </div>
           <div className={styles.rightSide}>
             <form method="post" action="/api/contact/">
