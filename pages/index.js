@@ -2,7 +2,7 @@ import Layout from '/containers/Layout'
 import Banner from '/components/Banner';
 import { useEffect, useState } from 'react';
 
-export default function Home({user}) {
+export default function Home({runs}) {
   const [index, setIndex] = useState(0)
   let timer
 
@@ -28,8 +28,22 @@ export default function Home({user}) {
   return (
     <div>
       <Layout>
+        {console.log(runs)}
         <Banner className={'dev-tools'}title={'Liam Pugh'} subtitle={`${skillsArray[index]} Developer`} alt="jslogo"/>
       </Layout>
     </div>
   )
+}
+
+
+export async function getStaticProps(context) { 
+
+  const runs = fetch('https://portfoliov4-six.vercel.app/pages/api/stravaApi/strava')
+
+  return {
+    props: {
+      runs: runs,
+
+    },
+  };
 }

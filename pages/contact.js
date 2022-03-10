@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Button from '../components/Button';
 import GithubIcon from '../components/Github-icon';
 import LinkedinIcon from '../components/LinkedinIcon';
+import StravaIcon from '../components/StravaIcon';
 import Layout from '/containers/Layout';
 import styles from '/styles/contactpage.module.css'
 import {motion} from 'framer-motion'
@@ -74,6 +75,9 @@ export default function Contact() {
               </a>
               <a className={styles.link} href="https://www.linkedin.com/in/liam-pugh-2102089b/">
                 <LinkedinIcon className={styles.linkedin}/>
+              </a>
+              <a className={styles.link} href="">
+                <StravaIcon className={styles.strava}/>
               </a>
             </div>
             <p className={styles.details}><strong>E:</strong> <a href="mailto:hello@liampugh.co.uk">hello@liampugh.co.uk</a></p>
