@@ -29,6 +29,7 @@ function Navbar() {
             <Link href={'/'}><a><Image alt="ShuttJS Logo" src="/myLogo-transparent.png" width="360" height="120"/></a></Link>
             <div>
               <Link href={'/'}><a className={styles.link}>{'Home'}</a></Link>
+              <Link href={'/about'}><a className={styles.link}>{'About'}</a></Link>
               <Link href={'/projects'}><a className={styles.link}>{'Projects'}</a></Link>
               <Link href={'/blog'}><a className={styles.link}>{'Blog'}</a></Link>
               <Link href={'/contact'}><a className={styles.link}>{'Contact'}</a></Link>

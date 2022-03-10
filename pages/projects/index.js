@@ -46,30 +46,30 @@ function Index({projects, user}) {
   // Sets the string limit bewfore cut off on the texblock snippet
   const stringLimit = 10
   return (
-      <Layout>
-        <SearchBar onChange={(e) => setQuery(e.target.value)} />
-        <div className="flex-column align-center">
-          <motion.img onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()} intial={{x: 0, opacity: displayPlusOpacity}} animate={{x: displayPlusX + 'px', opacity: displayPlusOpacity}}
-          src="/static/icons8-plus-math-64.png"
-          style={{width: "40px", height: "40px", margin: "auto"}}>
-          </motion.img>
-          <motion.img onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()} initial ={{opacity: 0}}animate={{
-            x: displayMinusX + 'px',
-            opacity: displayMinusOpacity,}}
-          src="/static/icons8-minus-64.png"
-          style={{width: "40px", height: "40px", margin: "auto"}}>
-          </motion.img>
-          <motion.div style={{overflow: 'hidden'}} initial={{x: 0, height: 0}} animate={{height: formOpen + 'px'}}>
-            <Form route={'projects'} />
-          </motion.div>
-        </div>
+    <>
+      <SearchBar onChange={(e) => setQuery(e.target.value)} />
+      <div className="flex-column align-center">
+        <motion.img onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()} intial={{x: 0, opacity: displayPlusOpacity}} animate={{x: displayPlusX + 'px', opacity: displayPlusOpacity}}
+        src="/static/icons8-plus-math-64.png"
+        style={{width: "40px", height: "40px", margin: "auto"}}>
+        </motion.img>
+        <motion.img onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()} initial ={{opacity: 0}}animate={{
+          x: displayMinusX + 'px',
+          opacity: displayMinusOpacity,}}
+        src="/static/icons8-minus-64.png"
+        style={{width: "40px", height: "40px", margin: "auto"}}>
+        </motion.img>
+        <motion.div style={{overflow: 'hidden'}} initial={{x: 0, height: 0}} animate={{height: formOpen + 'px'}}>
+          <Form route={'projects'} />
+        </motion.div>
+      </div>
 
-        <div className="flex">
-          {projects.map((project) => {
-            return <Textblock key={project.id} title={project.title} content={project.body.length > stringLimit ? project.body.substring(0, stringLimit) + '...' : project.body } />
-          })}
-        </div>          
-      </Layout>
+      <div className="flex">
+        {projects.map((project) => {
+          return <Textblock key={project.id} title={project.title} content={project.body.length > stringLimit ? project.body.substring(0, stringLimit) + '...' : project.body } />
+        })}
+      </div>     
+      </>     
       
   )
 }

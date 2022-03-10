@@ -27,9 +27,7 @@ export default function Home({}) {
 
   return (
     <div>
-      <Layout>
         <Banner className={'dev-tools'}title={'Liam Pugh'} subtitle={`${skillsArray[index]} Developer`} alt="jslogo"/>
-      </Layout>
     </div>
   )
 }

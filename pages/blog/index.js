@@ -33,34 +33,34 @@ export default function Index({posts}) {
   }
   
   return (
-    <Layout>
+    <>
       <div className="flex-column align-center">
         <motion.img onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()} intial={{x: 0, opacity: displayPlusOpacity}} animate={{x: displayPlusX + 'px', opacity: displayPlusOpacity}}
-        src="/static/icons8-plus-math-64.png"
-        style={{width: "40px", height: "40px", margin: "auto"}}>
+          src="/static/icons8-plus-math-64.png"
+          style={{width: "40px", height: "40px", margin: "auto"}}>
         </motion.img>
         <motion.img onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()} initial ={{opacity: 0}}animate={{
           x: displayMinusX + 'px',
           opacity: displayMinusOpacity,}}
-        src="/static/icons8-minus-64.png"
-        style={{width: "40px", height: "40px", margin: "auto"}}>
+          src="/static/icons8-minus-64.png"
+          style={{width: "40px", height: "40px", margin: "auto"}}>
         </motion.img>
         <motion.div style={{overflow: 'hidden'}} initial={{x: 0, height: 0}} animate={{height: formOpen + 'px'}}>
           <Form className='' initial={{opacity: 0}} action='POST'/>
         </motion.div>
       </div>
-      <motion.div >
-      {posts.map((post) => {
-            return (
-                    <Link key={post.slug} href={`/blog/${encodeURIComponent(post.slug)}`}>
-                      <a>
-                        <BlogPost key={post.slug} link={post.slug} titleText={post.title} bodyText={post.body} />
-                        </a>
-                    </Link>
-                    )
-                  })}
-      </motion.div>
-    </Layout>
+        <motion.div>
+        {posts.map((post) => {
+          return (
+            <Link key={post.slug} href={`/blog/${encodeURIComponent(post.slug)}`}>
+              <a>
+                <BlogPost key={post.slug} link={post.slug} titleText={post.title} bodyText={post.body} />
+                </a>
+            </Link>
+            )
+          })}
+        </motion.div>
+      </>
     
   );
 }
