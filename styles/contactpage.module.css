@@ -19,7 +19,7 @@
 
 .icons {
     display: flex;
-    width: 150px;
+    width: 200px;
     height: 60px;
     justify-content: center;
     align-items: center;
@@ -49,7 +49,7 @@
 .strava {
     cursor: pointer;
     height: 100%;
-    width: auto;
+    width: 100%;
     margin: 0 0.5rem;
 
 }

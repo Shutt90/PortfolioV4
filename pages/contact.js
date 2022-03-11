@@ -76,7 +76,7 @@ export default function Contact() {
             <LinkedinIcon className={styles.linkedin}/>
           </a>
           <a className={styles.link} href="">
-            <StravaIcon className={styles.strava}/>
+          <StravaIcon className={styles.strava}/>
           </a>
         </div>
         <p className={styles.details}><strong>E:</strong> <a href="mailto:hello@liampugh.co.uk">hello@liampugh.co.uk</a></p>
