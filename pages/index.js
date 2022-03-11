@@ -1,4 +1,3 @@
-import Layout from '/containers/Layout'
 import Banner from '/components/Banner';
 import { useEffect, useState } from 'react';
 

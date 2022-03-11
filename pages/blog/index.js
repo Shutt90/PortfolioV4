@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import Form from '../../components/Form';
 import BlogPost from '/components/BlogPost';
-import Layout from '/containers/Layout';
 import Link from 'next/link';
 import loadPosts from '/lib/load-posts'
 

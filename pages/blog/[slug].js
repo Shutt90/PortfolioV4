@@ -1,17 +1,14 @@
 import React from 'react';
 import styles from '/styles/post.module.css';
-import Layout from '/containers/Layout';
 import loadPosts from '/lib/load-posts';
 import loadPost from '/lib/load-post';
 
 export default function Slug({post}) {
   return (
-      <Layout>
-        <div className={styles.container}>
-            <h1 className="title">{post.title}</h1>
-            <p className="body">{post.body}</p>
-        </div>
-    </Layout>
+      <div className={styles.container}>
+          <h1 className="title">{post.title}</h1>
+          <p className="body">{post.body}</p>
+      </div>
   )
 } 
 
