@@ -64,7 +64,7 @@ function Index({projects, user}) {
         </motion.div>
       </div>
 
-      <div className="flex">
+      <div className="flex project-container">
         {projects.map((project) => {
           return <Textblock key={project.id} title={project.title} content={project.body.length > stringLimit ? project.body.substring(0, stringLimit) + '...' : project.body } />
         })}

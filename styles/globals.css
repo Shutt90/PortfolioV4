@@ -134,6 +134,22 @@ input::placeholder {
 
 }
 
+.project-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+
+}
+
+.project-container > * {
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 200px;
+  max-width: 400px;
+  
+}
+
 textarea {
   height: 10rem;
   font-size: 1.5rem;
@@ -143,7 +159,6 @@ textarea {
 }
 
 footer {
-  margin-top: auto;
   position: absolute;
   bottom: 2rem;
   left: 50%;
