@@ -8,12 +8,27 @@
     cursor: pointer;
 }
 
+.nav {
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .link {
-color: white;
-margin: 0 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1rem;
+    background-color: #2B2B2B;
+    border: solid 1px black;
 
 }
 
-.link:hover {
-font-weight: 700;
+.navText {
+    width: 0;
+    overflow: hidden;
 }

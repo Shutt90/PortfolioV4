@@ -8,6 +8,8 @@ import styles from '/styles/navbar.module.css'
 function Navbar() {
   const [modalOpen, setModalOpen] = useState(false);
 
+  const [width, setWidth] = useState(0)
+
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
 
@@ -21,22 +23,20 @@ function Navbar() {
           initial={false}
           exitBeforeEnter={true}
           onExitComplete={() => null}
-      >
-        {modalOpen && <Modal type={'login'} modalOpen={modalOpen} handleClose={close} />}
-    </AnimatePresence>
+          >
+            {modalOpen && <Modal type={'login'} modalOpen={modalOpen} handleClose={close} />}
+          </AnimatePresence>
         </div>
-        <nav className="nav">
-            <Link href={'/'}><a><Image alt="ShuttJS Logo" src="/myLogo-transparent.png" width="360" height="120"/></a></Link>
-            <div>
-              <Link href={'/'}><a className={styles.link}>{'Home'}</a></Link>
-              <Link href={'/about'}><a className={styles.link}>{'About'}</a></Link>
-              <Link href={'/projects'}><a className={styles.link}>{'Projects'}</a></Link>
-              <Link href={'/blog'}><a className={styles.link}>{'Blog'}</a></Link>
-              <Link href={'/contact'}><a className={styles.link}>{'Contact'}</a></Link>
-            </div>
-        </nav>
       </div>
-    </>
+      <Link href={'/'}><a><Image alt="ShuttJS Logo" src="/myLogo-transparent.png" width="360" height="120"/></a></Link>
+      <nav className={styles.nav}>
+        <Link href='/'><a className={styles.link}><p className={styles.navText}>Home</p><Image alt="Home Icon" width="50" height="50" src="/static/home.svg"></Image></a></Link>
+        <Link href='/about'><a className={styles.link}><p className={styles.navText}>About</p><Image alt="Home Icon" width="50" height="50" src="/static/about.svg"></Image></a></Link>
+        <Link href='/projects'><a className={styles.link}><p className={styles.navText}>Projects</p><Image alt="Home Icon" width="50" height="50" src="/static/projects.svg"></Image></a></Link>
+        <Link href='/blog'><a className={styles.link}><p className={styles.navText}>Blog</p><Image alt="Home Icon" width="50" height="50" src="/static/blog.svg"></Image></a></Link>
+        <Link href='/contact'><a className={styles.link}><p className={styles.navText}>Contact</p><Image alt="Home Icon" width="50" height="50" src="/static/contact.svg"></Image></a></Link>
+      </nav>
+     </>
   )
 }
 

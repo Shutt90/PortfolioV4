@@ -88,7 +88,6 @@ export default function Contact() {
       : ''
       }
 
-      </div>
       <div className={styles.rightSide}>
         <form method="post" action="/api/contact/">
             <input required value={name} className={styles.textInput} placeholder="Name" type="input" onChange={(e)=>{setName(e.target.value)}} name="name" id="name"></input>
@@ -104,6 +103,7 @@ export default function Contact() {
             <Button type="submit" text="Submit" onClick={(e) => handleSubmit(e)}></Button>
         </form>
       </div>
+    </div>
   </>
   );
 }
