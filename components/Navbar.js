@@ -41,7 +41,7 @@ function Navbar() {
             <motion.p initial={{width: 0}} animate={{width: homeWidth + 'px'}} className={styles.navText}>
               Home
             </motion.p>
-            <Image alt="Home Icon" width="50" height="50" className={styles.navImage} src="/static/home.svg"/>
+            <Image alt="Home Icon" width="30" height="30" className={styles.navImage} src="/static/home.svg"/>
           </motion.a>
         </Link>
         <Link href='/about'>
@@ -49,7 +49,7 @@ function Navbar() {
             <motion.p initial={{width: 0}} animate={{width: aboutWidth + 'px'}} className={styles.navText}>
               About
             </motion.p>
-            <Image alt="Home Icon" width="50" height="50" className={styles.navImage} src="/static/about.svg"/>
+            <Image alt="Home Icon" width="30" height="30" className={styles.navImage} src="/static/about.svg"/>
           </motion.a>
         </Link>
         <Link href='/projects'>
@@ -57,7 +57,7 @@ function Navbar() {
             <motion.p initial={{width: 0}} animate={{width: projectsWidth + 'px'}} className={styles.navText}>
               Projects
             </motion.p>
-            <Image alt="Home Icon" width="50" height="50" className={styles.navImage} src="/static/projects.svg"/>
+            <Image alt="Home Icon" fill="#fff" width="30" height="30" className={styles.navImage} src="/static/projects.svg"/>
           </motion.a>
         </Link>
         <Link href='/blog'>
@@ -65,7 +65,7 @@ function Navbar() {
             <motion.p initial={{width: 0}} animate={{width: blogWidth + 'px'}} className={styles.navText}>
               Blog
             </motion.p>
-            <Image alt="Home Icon" width="50" height="50" className={styles.navImage} src="/static/blog.svg"/>
+            <Image alt="Home Icon" width="30" height="30" className={styles.navImage} src="/static/blog.svg"/>
           </motion.a>
         </Link>
         <Link href='/contact'>
@@ -73,7 +73,7 @@ function Navbar() {
             <motion.p initial={{width: 0}} animate={{width: contactWidth + 'px'}} className={styles.navText}>
               Contact
             </motion.p>
-            <Image alt="Home Icon" width="50" height="50" className={styles.navImage} src="/static/contact.svg"/>
+            <Image alt="Home Icon" width="30" height="30" className={styles.navImage} src="/static/contact.svg"/>
           </motion.a>
         </Link>
       </nav>

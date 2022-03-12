@@ -13,10 +13,10 @@
     display:flex;
     flex-direction: column;
     float:left;
-
-        left: 0;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 1001;
 }
 
 .link {
@@ -27,7 +27,8 @@
     padding:1rem;
     background-color: #2B2B2B;
     border: solid 1px black;
-    margin-right: auto;
+    margin-left: auto;
+    cursor: pointer;
 }
 
 
