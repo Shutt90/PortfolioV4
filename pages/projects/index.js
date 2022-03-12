@@ -52,7 +52,7 @@ function Index({projects, user}) {
         src="/static/icons8-plus-math-64.png"
         style={{width: "40px", height: "40px", margin: "auto"}}>
         </motion.img>
-        <motion.img onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()} initial ={{opacity: 0}}animate={{
+        <motion.img onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()} initial={{opacity: 0}} animate={{
           x: displayMinusX + 'px',
           opacity: displayMinusOpacity,}}
         src="/static/icons8-minus-64.png"
