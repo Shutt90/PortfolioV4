@@ -21,7 +21,8 @@ a {
 
 
 body {
-  min-width: calc(100vw - 2.5rem);
+  margin: auto;
+  width: 80%;
   min-height: 100vh;
   background: linear-gradient(to top right, #1F1F1F, #3B3B3B);
   color: white;
