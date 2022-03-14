@@ -16,9 +16,9 @@ function Index({projects, user}) {
   const [displayMinusOpacity, setDisplayMinusOpacity] = useState(0);
 
   function plusOnClick () {
-    setDisplayPlusX(50)
+    setDisplayPlusX(40)
     setDisplayPlusOpacity(0)
-    setDisplayMinusX(0)
+    setDisplayMinusX(-40)
     setDisplayMinusOpacity(1)
     setFormOpen(600)
   }
@@ -26,7 +26,7 @@ function Index({projects, user}) {
   function minusOnClick () {
     setDisplayPlusX(0)
     setDisplayPlusOpacity(1)
-    setDisplayMinusX(50)
+    setDisplayMinusX(0)
     setDisplayMinusOpacity(0)
     setFormOpen(0)
 
@@ -48,16 +48,18 @@ function Index({projects, user}) {
     <>
       <SearchBar onChange={(e) => setQuery(e.target.value)} />
       <div className="flex-column align-center">
-        <motion.img onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()} intial={{x: 0, opacity: displayPlusOpacity}} animate={{x: displayPlusX + 'px', opacity: displayPlusOpacity}}
-        src="/static/icons8-plus-math-64.png"
-        style={{width: "40px", height: "40px", margin: "auto"}}>
-        </motion.img>
-        <motion.img onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()} initial={{opacity: 0}} animate={{
-          x: displayMinusX + 'px',
-          opacity: displayMinusOpacity,}}
-        src="/static/icons8-minus-64.png"
-        style={{width: "40px", height: "40px", margin: "auto"}}>
-        </motion.img>
+        <div className="flex align-center">
+          <motion.img onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()} intial={{x: 0, opacity: displayPlusOpacity}} animate={{x: displayPlusX + 'px', opacity: displayPlusOpacity}}
+          src="/static/icons8-plus-math-64.png"
+          style={{width: "40px", height: "40px", margin: "auto"}}>
+          </motion.img>
+          <motion.img onClick={(e) => formOpen === 0 ? plusOnClick() : minusOnClick()} initial={{opacity: 0}} animate={{
+            x: displayMinusX + 'px',
+            opacity: displayMinusOpacity,}}
+          src="/static/icons8-minus-64.png"
+          style={{width: "40px", height: "40px", margin: "auto"}}>
+          </motion.img>
+        </div>
         <motion.div style={{overflow: 'hidden'}} initial={{x: 0, height: 0}} animate={{height: formOpen + 'px'}}>
           <Form route={'projects'} />
         </motion.div>
