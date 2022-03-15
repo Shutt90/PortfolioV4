@@ -32,13 +32,17 @@ function Index({projects, user}) {
 
   }
 
-  projects = projects.filter(post => {
+  projects = projects.filter(project => {
     if (query === "") {
       //if query is empty
-      return post;
-    } else if (post.title.toLowerCase().includes(query.toLowerCase())) {
+      return project;
+    } else if (
+      project.title.toLowerCase().includes(query.toLowerCase()
+      ||
+      project.tech.toLowerCase().contains(query.toLowerCase()))
+      ) {
       //filtered array returned
-      return post;
+      return project;
     }
   });
 
