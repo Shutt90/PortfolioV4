@@ -59,18 +59,18 @@ export default function Index({posts}) {
           <Form className='' initial={{opacity: 0}} action='POST'/>
         </motion.div>
       </div>
-        <motion.div>
+      <motion.div>
         {posts.map((post) => {
           return (
-            <Link key={post.slug} href={`/blog/${encodeURIComponent(post.slug)}`}>
+            <Link key={post.slug} passHref={true} href={`/blog/${encodeURIComponent(post.slug)}`}>
               <a>
                 <BlogPost key={post.slug} link={post.slug} titleText={post.title} bodyText={post.body} />
-                </a>
+              </a>
             </Link>
             )
           })}
-        </motion.div>
-      </>
+      </motion.div>
+    </>
     
   );
 }

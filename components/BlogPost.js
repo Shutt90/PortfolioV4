@@ -25,14 +25,16 @@ const blogVariants = {
 function BlogPost({titleText, bodyText}) {
   return (
       <motion.div
-      variants={blogVariants}
-      className={styles.row}
-      initial="hidden"
-      animate="visible"
-      whileHover="whileHover"
-      whileFocus="whileFocus"
-      >
-        <a className={styles.text}>{titleText}, {bodyText}</a>    
+        variants={blogVariants}
+        className={styles.row}
+        initial="hidden"
+        animate="visible"
+        whileHover="whileHover"
+        whileFocus="whileFocus"
+        >
+        <p className={styles.text}>
+          {titleText}, {bodyText}
+        </p>    
     </motion.div>
     );
 }

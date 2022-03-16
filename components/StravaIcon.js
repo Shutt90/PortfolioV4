@@ -17,7 +17,6 @@ function LinkedinIcon({className}) {
   }
 
   return (
-    <a href="https://www.strava.com/athletes/68916308">
       <motion.svg className={className}
       onHoverStart={(e) => setStrava('blank')}
       onHoverEnd={(e) => setStrava()}
@@ -26,7 +25,6 @@ function LinkedinIcon({className}) {
         <motion.path d="M41.03 47.852l-5.572-10.976h-8.172L41.03 64l13.736-27.124h-8.18" fill={topColor} />
         <motion.path d="M27.898 21.944l7.564 14.928h11.124L27.898 0 9.234 36.876H20.35" fill={bottomColor}/>
       </motion.svg>
-    </a>
     )
 }
 

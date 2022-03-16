@@ -8,7 +8,7 @@ function Banner({title, subtitle, alt, onMouseEnter, onMouseLeave}) {
         <div className={styles.textarea}>
             <h1 className={styles.title}>{title}</h1>
             <h3 className={styles.subtitle}>{subtitle}</h3>
-            <Link href="/contact"><a class="standard-btn" style={{width: '70%'}}>Get in touch...</a></Link>
+            <Link href="/contact"><a className="standard-btn" style={{width: '70%'}}>Get in touch...</a></Link>
         </div>
         <Image className={styles.bannerImage} alt={alt} width='400' height='400' src='/static/js.png' />
     </div>
