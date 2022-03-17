@@ -1,23 +1,18 @@
 import { AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react'
 import Modal from '../containers/Modal';
 import styles from '/styles/navbar.module.css'
 import {motion} from 'framer-motion';
 import NavItem from './NavItem';
+import { useState, useEffect } from 'react';
+
 
 function Navbar() {
   const [modalOpen, setModalOpen] = useState(false);
-
-  //Refactor later
-  const [aboutWidth, setAboutWidth] = useState(0)
-  const [projectsWidth, setProjectsWidth] = useState(0)
-  const [blogWidth, setBlogWidth] = useState(0)
-  const [contactWidth, setContactWidth] = useState(0)
-
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
+
 
   return (
     <>

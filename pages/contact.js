@@ -7,6 +7,7 @@ import StravaIcon from '../components/StravaIcon';
 import Layout from '/containers/Layout';
 import styles from '/styles/contactpage.module.css'
 import {motion} from 'framer-motion'
+import windowWidth from '/utilities/WindowWidth';
 
 
 export default function Contact() {
@@ -58,13 +59,14 @@ export default function Contact() {
       })
     }
 
+
   return (
   <>
     <div className={styles.container}>
       <div className={styles.leftSide}>
         <h1 className={styles.title}>Contact Me</h1>
         <h3 className={styles.title}>
-
+          
           {message != '' ? message: ''}
 
         </h3>
