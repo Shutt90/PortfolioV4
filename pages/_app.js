@@ -21,7 +21,6 @@ function MyApp({ Component, pageProps, router }) {
             }}
             animate={{
               opacity: 1,
-              x: 0,
               transition: {
                 type: 'tween',
                 ease: 'easeOut',
